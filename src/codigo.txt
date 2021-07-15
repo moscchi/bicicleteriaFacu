@@ -1,0 +1,61 @@
+public Double CalcularMonto(){
+
+	if (this.getCliente() instanceof CiclistaFederado )
+	    return this.getBicicleta().getPrecio() *0.9;
+	else
+	    return this.getBicicleta().getPrecio();
+	}
+Esa es una opcion. La q voy a usar:
+
+en Persona
+
+public Double descuento(Double monto){
+	return monto;
+}
+
+En ciclista comun hereda del padre y no se h ace mas nada, en ciclista federado se polimorfa y queda
+
+public Double descuento(Double monto){
+	return monto*0.9;
+}
+
+Y en Clase compra:
+public Double CalcularMonto(){
+	return this.getCliente().descuento(this.getBicicleta().getPrecio());
+
+Direccion
+private Integer Id;
+	private String Calle;
+	private String NumCalle;
+	private String PisoDepto;
+	private Integer PostalCode;
+	private String Line3;
+	private String Observaciones;
+Facturacion
+private Integer Id;
+	private String Tipo;
+	private String Clase;
+	private Integer Num;
+	private Date Fecha;
+	private Double Saldo;
+	private Double Descuentos;
+	private Double Impuestos;
+	private Double Neto;
+	private String Tracking;
+
+
+Tarjeta
+	protected String Titular;
+	protected Integer NumTar_Num;
+	protected Integer SegCode;
+	protected Integer Transaccion;
+	private Integer Id;
+getStock.getCantidad () >= cantidad
+
+public String getPersona() {
+		return Nombres +(" ")+ Apellidos +(". Su DNI es ") + DNI +(" y su ID ")+ Id; //get persona del diagrama de clases falta ver q ponerle, no se si esta bien
+	}
+
+Un cliente puede comprar una o más bicicletas y abonar en un solo pago, con efectivo, tarjeta de débito o tarjeta de crédito. Para los pagos con tarjeta, se requiere registrar el número de tarjeta y si es de crédito ademas agregar la fecha de vencimiento.
+
+Los ciclistas federados tienen un descuento del 25 % en la compra en efectivo de bicicletas de especialidad competición y un 10% de descuento en cualquier forma de pago para la compra de bicicletas de especialidad Sport. El servicio de envío es solo para los clientes comunes, con lo cual, es necesario registrar la dirección de envío
